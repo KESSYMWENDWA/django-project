@@ -1,0 +1,79 @@
+.footer {
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 50px 30px;
+    font-family: 'Arial', sans-serif;
+}
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #fff;
+}
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.footer-brand {
+    flex: 1 1 25%;
+}
+
+.brand-logo img {
+    width: 150px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.brand-description {
+    font-size: 0.9em;
+    color: #bbb;
+}
+.footer-links {
+    display: flex;
+    flex: 1 1 75%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-column {
+    flex: 1 1 22%;
+    margin-bottom: 20px;
+}
+.footer-column h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+.social-icons a {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+}
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9em;
+}
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.footer-bottom-links li {
+    margin: 0 15px;
+}
+.footer-bottom-links a {
+    font-size: 0.9em;
+}

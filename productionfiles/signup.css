@@ -1,0 +1,106 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.signup-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-size: 0.9em;
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.form-group input:focus {
+    border-color: #ff6f61;
+    outline: none;
+}
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.signup-btn:hover {
+    background-color: #e65a50;
+}
+.terms {
+    font-size: 0.8em;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+.terms a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+.terms a:hover {
+    text-decoration: underline;
+}
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+.social-login p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #fff;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+.social-icons a.facebook {
+    background-color: #3b5998;
+}
+.social-icons a.twitter {
+    background-color: #1da1f2;
+}
+.social-icons a.google {
+    background-color: #db4437;
+}
+.social-icons a:hover {
+    opacity: 0.8;
+}

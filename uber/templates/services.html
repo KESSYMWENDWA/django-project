@@ -1,0 +1,56 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'services.css' %}">
+</head>
+<body>
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="{% static 'images/main1.jpg' %} " alt="Ride Service">
+                    </div>
+                    <h3 class="service-title">Ride Service</h3>
+                    <p class="service-description">
+                        Book a ride to your destination with just a few clicks. Enjoy a safe and comfortable journey.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="{% static 'images/Carpooling.webp' %} " alt="Ride Service">
+                    </div>
+                    <h3 class="service-title">Carpooling</h3>
+                    <p class="service-description">
+                        Share your ride with others heading the same way and save on travel costs.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="{% static 'images/delivery.webp' %} " alt="Delivery Service">
+                    </div>
+                    <h3 class="service-title">Delivery Service</h3>
+                    <p class="service-description">
+                        Get your packages delivered quickly and reliably to your doorstep.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="{% static 'images/fooddelivery.webp' %} " alt="food Delivery">
+                    </div>
+                    <h3 class="service-title">Food Delivery</h3>
+                    <p class="service-description">
+                        Order your favorite meals and have them delivered hot and fresh to your door.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

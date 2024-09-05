@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Receipt</title>
+  <link rel="stylesheet" href="{% static 'receipt.css' %}">
+</head>
+<body>
+  <div class="receipt-container">
+    <div class="receipt-header">
+      <h1>Payment Receipt</h1>
+    </div>
+    <div class="receipt-body">
+      <div class="receipt-details">
+        <p><strong>Payment ID:</strong> {{ payment.id }}</p>
+        <p><strong>User:</strong> {{ payment.user.username }}</p>
+        <p><strong>Ride ID:</strong> {{ payment.ride.id }}</p>
+        <p><strong>MPESA Code:</strong> {{ payment.mpesa_code }}</p>
+        <p><strong>Amount:</strong> ${{ payment.amount }}</p>
+        <p><strong>Payment Date:</strong> {{ payment.payment_date }}</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="{% url 'booking' %}">Book a New Ride</a>
+</body>
+</html>

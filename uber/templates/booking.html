@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Uber-Style Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{% static 'booking.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Add your favorite map API (like Google Maps) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Book Your Ride</h2>
+        <form method="post" action="{% url 'booking' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="current-location" name="current_location" placeholder="Current-location" required>
+                <button type="button"class="book-btn" onclick="getCurrentLocation()">Detect My Location</button>
+            </div>
+            <div class="form-group">
+                <input type="text" id="destination" name="destination" placeholder="Destination" required>
+            </div>
+
+            <!-- Map to show current location and destination -->
+            <div id="map" style="height: 400px; width: 100%;"></div>
+
+            <h3>Select Your Ride</h3>
+            <div class="rides">
+                <div class="ride-option">
+                    <input type="radio" id="economy" name="ride_type" value="Economy Car" required>
+                    <label for="economy">
+                        <img src="{% static 'images/economy.jpg' %}" alt="Economy Car" style="width:100px; height:auto;"><br>
+                        <strong>Economy Car</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+                <div class="ride-option">
+                    <input type="radio" id="motorcycle" name="ride_type" value="Motorcycle" required>
+                    <label for="motorcycle">
+                        <img src="{% static 'images/motorcycle.jpg' %}" alt="Economy Car" style="width:100px; height:auto;"><br>
+                        <strong>Motorcycle</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+                <div class="ride-option">
+                    <input type="radio" id="luxury" name="ride_type" value="Luxury Car" required>
+                    <label for="luxury">
+                        <img src="{% static 'images/luxury.jpg' %}" alt="Luxury Car" style="width:100px; height:auto;"><br>
+                        <strong>Luxury Car</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+                <div class="ride-option">
+                    <input type="radio" id="ride" name="ride_type" value="Ride Car" required>
+                    <label for="ride">
+                        <img src="{% static 'images/ride1.jpg' %}" alt="Economy Car" style="width:100px; height:auto;"><br>
+                        <strong>Ride Car</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+                <div class="ride-option">
+                    <input type="radio" id="womenonly" name="ride_type" value="Womenonly Car" required>
+                    <label for="womenonly">
+                        <img src="{% static 'images/delivery.webp' %}" alt="Economy Car" style="width:100px; height:auto;"><br>
+                        <strong>Women-only Car</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+                <div class="ride-option">
+                    <input type="radio" id="blue" name="ride_type" value="Blue Car" required>
+                    <label for="blue">
+                        <img src="{% static 'images/blue.jpg' %}" alt="Economy Car" style="width:100px; height:auto;"><br>
+                        <strong>Blue Car</strong><br>
+                        Rating: 4.5/5<br>
+                        Price: $15.00
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="book-btn">Book Ride</button>
+        </form>
+    </div>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+
+            var currentLocationInput = document.getElementById('current-location');
+            var destinationInput = document.getElementById('destination');
+
+            var autocompleteCurrent = new google.maps.places.Autocomplete(currentLocationInput);
+            var autocompleteDestination = new google.maps.places.Autocomplete(destinationInput);
+
+            autocompleteCurrent.bindTo('bounds', map);
+            autocompleteDestination.bindTo('bounds', map);
+
+            var currentMarker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29)
+            });
+
+            var destinationMarker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29)
+            });
+
+            autocompleteCurrent.addListener('place_changed', function() {
+                var place = autocompleteCurrent.getPlace();
+                if (!place.geometry) {
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+                map.setCenter(place.geometry.location);
+                currentMarker.setPosition(place.geometry.location);
+                currentMarker.setVisible(true);
+            });
+
+            autocompleteDestination.addListener('place_changed', function() {
+                var place = autocompleteDestination.getPlace();
+                if (!place.geometry) {
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+                map.setCenter(place.geometry.location);
+                destinationMarker.setPosition(place.geometry.location);
+                destinationMarker.setVisible(true);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+        function getCurrentLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        
+        // Use reverse geocoding to convert lat, lon to an address
+        var geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(lat, lon);
+
+        geocoder.geocode({ 'location': latlng }, function(results, status) {
+            if (status === 'OK') {
+                if (results[0]) {
+                    document.getElementById('current-location').value = results[0].formatted_address;
+                } else {
+                    alert("No results found");
+                }
+            } else {
+                alert("Geocoder failed due to: " + status);
+            }
+        });
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+    </script>
+</body>
+</html>

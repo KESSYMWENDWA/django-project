@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uber - Your Ride, Your Way</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/"><h1>RIDE .</h1></a>
+        </div>
+        <div class="country-flag">
+            <img src="{% static 'images/flag.jpg' %}" alt="Country Flag">
+        </div>
+        <ul>
+            
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="signup/">Sign up</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <img src="{% static 'images/main2.jpg' %}" alt="Hero Image">
+        <div class="hero-content">
+            <h1>Your Ride, Your Way</h1>
+            <p>Convenient, reliable, and affordable rides at the tap of a button.</p>
+            <a href="signin/" class="sign-up-button">Book Ride</a>
+        </div>
+    </section>
+    {% include 'services.html' %}
+
+    {% include 'about.html' %}
+
+    {% include 'footer.html' %}
+
+
+    
+</body>
+</html>

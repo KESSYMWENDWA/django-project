@@ -1,0 +1,129 @@
+/* Overall Styles */
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.booking-container {
+    width: 80%; /* Adjust the width as needed */
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f5f5f5; /* Add a background color */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.form-group label {
+    color: #666;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+button[type="button"] {
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+.book-btn:disabled {
+    background-color: #ccc;
+    cursor: default;
+}
+
+.book-btn:hover {
+    background-color: #3e8e41;
+}
+
+/* Map Styles */
+#map {
+    height: 400px;
+}
+
+/* Ride Options Styles */
+.rides {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the ride options */
+    margin-top: 20px;
+}
+
+.ride-option {
+    display: flex;
+    align-items: center;
+    width: 300px; /* Adjust the width of each ride option */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff; /* Add a background color */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+}
+
+.ride-option img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.ride-option label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ride-option span {
+    font-size: 14px;
+}
+
+/* Additional Styles (feel free to customize) */
